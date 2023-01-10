@@ -1,0 +1,40 @@
+.landingPage{
+    margin-top: 0px;
+    background-image: url('C:/Users/91990/OneDrive/Desktop/React JS/MY 1st PROJECT/public/images/WOAttEL.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    padding-top: 200px;
+    text-align: center;
+}
+.landingPage h1{
+    margin-top: 0px;
+    padding-top: 50px;
+    color: rgb(8, 8, 8);
+}
+.selectLoginType{
+    position: absolute;
+    background-color: rgba(141, 130, 96, 0.633);
+    width: 50%;
+    margin-left: 380px;
+    height: 500px;
+    border-radius: 50px;
+   box-shadow: 30px 30px 15px rgba(15, 13, 8, 0.966);
+
+}
+.selectLoginType img{
+    margin: 35px 60px;
+    
+}
+.selectLoginType a{
+    margin: 5px 85px;
+    text-decoration: none;
+    border: 1px solid rgb(1, 14, 42);
+    padding: 5px 10px;
+    background-color:rgb(1, 9, 13);
+    border-radius: 5px;
+    color: white;
+   
+    
+    
+}

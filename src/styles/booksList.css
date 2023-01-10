@@ -1,0 +1,48 @@
+.booksList {
+background-color: rgb(190, 186, 172);
+text-align: none;
+padding-top: 30px;
+}
+.booksList h1{
+    margin-top: 0px;
+    text-align: center;
+}
+.lists {
+    background: linear-gradient(to bottom,rgb(238, 189, 105),rgb(205, 204, 202));
+    border: 0px;
+    border-radius: 20px 30px;
+    width: 1000px;
+    padding: 10px ;
+    margin: 20px;
+    box-shadow: 20px 20px 15px black;
+    display: flex;
+    margin-left: 230px;
+    
+}
+.books_section{
+    display: flex;
+    flex-wrap: wrap;
+}
+.lists button{
+    margin-top: 10px;
+    border: 1px solid red;
+    color: red;
+    background-color: rgb(238, 189, 105);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+.lists button:hover{
+background-color: red;
+color: whitesmoke;
+}
+.images img{
+    height: 250px;
+    width: 150px;
+    border-radius: 30px 20px;
+    box-shadow: 10px 10px 10px black;
+
+}
+.content{
+    margin-left: 50px;
+    text-align: none;
+}
