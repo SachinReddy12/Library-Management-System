@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import '../styles/booksList.css'
-import ReadBooks from "./readBook";
 const BooksList = () => {
   let [book, setBook] = useState([]);
-
+ let location=useLocation();
   useEffect(() => {
     let fetchData = async () => {
       let responce = await fetch(`http://localhost:2050/books/`);
@@ -13,17 +12,22 @@ const BooksList = () => {
     }
     fetchData();
   }, [book])
-//DELETE A BOOK FROM THE SERVER PEAMANETLY
+  //DELETE A BOOK FROM THE SERVER PEAMANETLY
   let remove = (id, title) => {
-    fetch(`http://localhost:2050/books/${id}`,{
-      method:'DELETE'
+    fetch(`http://localhost:2050/books/${id}`, {
+      method: 'DELETE'
 
     })
     alert(`${title} WILL BE DELETED PERMANETLY`);
   }
-  let nav=useNavigate();
-  let readmore=(id)=>{
+  let nav = useNavigate();
+  let readmore = (id) => {
+    if(location.pathname == '/admin/book-list'){
     nav(`/admin/book-list/${id}/`);
+    }
+    else{
+      nav(`/user/book-list/${id}/`)
+    }
   }
   return (
     <div className="booksList">
@@ -32,21 +36,21 @@ const BooksList = () => {
         {book.map((x) => (
           <div className="lists">
             <div className="images">
-              <img src={x.thumbnailUrl} alt='x.thumbnailUrl'/>
+              <img src={x.thumbnailUrl} alt='x.thumbnailUrl' />
             </div>
             <div className="content">
-            <h1>Title: {x.title}</h1>
-            <p>Authors: {x.authors.toString()}</p>
-            <p>categories: {x.categories.toString()}</p>
-            <p>PageCount: {x.pageCount}</p>
-            
-            <button onClick={()=>readmore(x.id )}>Read More</button>
-            <br />
-            <button onClick={() => remove(x.id, x.title)}>Delete</button>
+              <h1>Title: {x.title}</h1>
+              <p>Authors: {x.authors.toString()}</p>
+              <p>categories: {x.categories.toString()}</p>
+              <p>PageCount: {x.pageCount}</p>
+
+              <button onClick={() => readmore(x.id)}>Read More</button>
+              <br />
+             {location.pathname == '/admin/book-list' && <button onClick={() => remove(x.id, x.title)}>Delete</button>}
             </div>
           </div>
         ))}
-              </div>
+      </div>
     </div>
 
   );
